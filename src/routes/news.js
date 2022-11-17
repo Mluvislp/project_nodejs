@@ -1,10 +1,10 @@
 import express from 'express';
 import  {NewsController}  from '../resources/app/controllers/NewsController.js';
 
-var router = express.Router() ;
+    var router = express.Router() ;
 
-var newsController = new NewsController;
+    var news = new NewsController;
 
-router.use('/',newsController.index)
+    router.get('/',news.index)
 
 export {router}
