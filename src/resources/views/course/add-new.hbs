@@ -1,0 +1,27 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <form method="POST" action="/course/handle-add">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Your course title">
+            </div>
+        </div>
+         <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Link video youtube</label>
+                <input type="text" class="form-control" id="code_video" name="code_video" placeholder="Link Youtube">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Content</label>
+            <textarea type="text" class="form-control" name="body" id="body"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Upload Image
+            </label>
+            <input type="file" id="file-upload" name='img' type="img">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</div>

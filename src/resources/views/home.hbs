@@ -1,18 +1,73 @@
-<div class="mt-4">
-    <div class="row">
-        {{#each Courses}}
-            <div class="col-sm-6 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{this.img}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{this.title}}</h5>
-                        <p class="card-text">
-                        {{this.body}} 
-                        </p>
-                        <a href="" class="card-link">{{this.insert_date}}</a>
-                    </div>
-                </div>
-            </div>
-        {{/each}}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">About project</h1>
+      <p class="lead text-muted">This is Node Js projecty</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
     </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {{#each Courses}}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" src="{{this.img}}" width="100%" height="225" role="img"
+            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          </img>
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.body}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a type="button" href="/course/{{this.slug}}" class="btn btn-sm btn-outline-secondary">View</a>
+                <a type="button" href="/course/edit-course/{{this._id}}"
+                  class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmDeleteModel" data-id="{{this._id}}" >Delete</a>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
+
+<div class="modal fade" id="confirmDeleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are u sure ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Uhm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentload',function(){
+        $('#confirmDeleteModel').on('show.bs.modal' , function(e){
+            var button = $(e.relatedTarget);
+            var id = button.data('id');
+            console.log(id);
+   })
+  })
+
+</script>
